@@ -1,70 +1,64 @@
 import React, {Component} from 'react'
 import Routes from './Routes';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import "./Navbar.css";
+import Home from "./Home";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-function TabContainer(props) {
+
+// NavbarBrand.propTypes = {
+//   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+//   // pass in custom element to use
+// }
+
+export default class NavbarHome extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+  render() {
+    const HomeNav = <Link to="/">Home</Link>
     return (
-      <Typography component="div" style={{ padding: 8 * 3 }}>
-        {props.children}
-      </Typography>
+      <div>
+        <Navbar color="faded" light>
+          <NavbarBrand href="/" className="mr-auto"><a href="/">Conner Donohoo</a></NavbarBrand>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav navbar>
+              <NavItem>
+              <NavLink>{HomeNav}</NavLink>
+              </NavItem>
+              <NavItem>
+                <Link to="/about">About</Link>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        <Routes/>
+      </div>
     );
   }
-  
-  TabContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-  
-  const styles = theme => ({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.background.paper,
-    },
-  });
-  
-  class Navbar extends Component {
-    state = {
-      value: 0,
-    };
-  
-    handleChange = (event, value) => {
-      this.setState({ value });
-    };
-  
-    render() {
-      const { classes } = this.props;
-      const { value } = this.state;
-  
-      return (
-        <div className={classes.root}>
-          <AppBar position="static">
-            <Tabs value={value} onChange={this.handleChange}>
-              <Tab label="Home" />
-              <Tab label="About" />
-              <Tab label="Example" href="#basic-tabs" />
-            </Tabs>
-          </AppBar>
-          {value === 0 && <TabContainer>Item One</TabContainer>}
-          {value === 1 && <TabContainer>Item Two</TabContainer>}
-          {value === 2 && <TabContainer>Item Three</TabContainer>}
-        </div>
-      );
-    }
-  }
-  
-  Navbar.propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
-  
-//   class Navbar extends Component {
-//     render() {
+}
 
-//      return(
+// NavbarToggler.propTypes = {
+//   type: PropTypes.string,
+//   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+//   // pass in custom element to use
+// }
+
+//  class Navbar extends Component {
+//     render() {
+//       return(
 //          <div>
 //         <ul>
 //         <li>
@@ -80,6 +74,4 @@ function TabContainer(props) {
 //      )
 //     }
 // }
-
-
-export default withStyles(styles)(Navbar);
+//  export default Navbar

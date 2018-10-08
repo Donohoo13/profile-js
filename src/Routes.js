@@ -5,6 +5,7 @@ import About from './About';
 
 export default class Routes extends Component {
     render() {
+        
         return(
             <Fragment>
                 <Route exact path="/" component={Home} />
