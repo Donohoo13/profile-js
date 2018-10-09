@@ -1,3 +1,28 @@
-NavLink {
-    text-decoration: none;
+.profileName {
+    color: #262228;
+    font-size: 28px;
+
 }
+
+.profileName:hover {
+    color: #264228;
+    font-size: 29px;
+}
+
+#navBar {
+    background-color: #007849;
+}
+
+  .navLink a {
+      color: white;
+      
+  }
+  .navLink a:hover {
+      color: #262228;
+      text-decoration: none;
+  }
+
+  .navLinks {
+      display: flex;
+      justify-content: space-around;
+  }

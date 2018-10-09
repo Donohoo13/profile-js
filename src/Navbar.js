@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Routes from './Routes';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
-import Home from "./Home";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 
@@ -28,18 +27,31 @@ export default class NavbarHome extends Component {
   }
   render() {
     const HomeNav = <Link to="/">Home</Link>
+    const AboutNav = <Link to="/about">About</Link>
+    const ShowcaseNav = <Link to="/showcase">Showcase</Link>
+    // const burgerIcon = '\u2630'
+
     return (
       <div>
-        <Navbar color="faded" light>
-          <NavbarBrand href="/" className="mr-auto"><a href="/">Conner Donohoo</a></NavbarBrand>
+        <Navbar id="navBar" light>
+          <NavbarBrand className="mr-auto" onClick={this.toggleNavbar}>
+            <p className='profileName'>Conner Donohoo</p>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav navbar>
+            {/* <Nav navbar> */}
+            <Nav className="navLinks">
               <NavItem>
-              <NavLink>{HomeNav}</NavLink>
+                <NavLink className="navLink">{HomeNav}</NavLink>
               </NavItem>
               <NavItem>
-                <Link to="/about">About</Link>
+                <NavLink className="navLink">{AboutNav}</NavLink> 
+              </NavItem>
+              <NavItem>
+                <NavLink className="navLink">{ShowcaseNav}</NavLink> 
+              </NavItem>
+              <NavItem>
+                {/* <NavLink to='/'className="navLink">Hola'</NavLink> */}
               </NavItem>
             </Nav>
           </Collapse>
