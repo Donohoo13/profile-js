@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Routes from './Routes';
+import Routes from './Routes/Routes';
 import { Link } from 'react-router-dom';
-import "./Navbar.css";
+import "./CSS/Navbar.css";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 
@@ -29,7 +29,6 @@ export default class NavbarHome extends Component {
     const HomeNav = <Link to="/">Home</Link>
     const AboutNav = <Link to="/about">About</Link>
     const ShowcaseNav = <Link to="/showcase">Showcase</Link>
-    // const burgerIcon = '\u2630'
 
     return (
       <div>
@@ -37,7 +36,7 @@ export default class NavbarHome extends Component {
           <NavbarBrand className="mr-auto" onClick={this.toggleNavbar}>
             <p className='profileName'>Conner Donohoo</p>
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" /> */}
           <Collapse isOpen={!this.state.collapsed} navbar>
             {/* <Nav navbar> */}
             <Nav className="navLinks">
@@ -61,29 +60,3 @@ export default class NavbarHome extends Component {
     );
   }
 }
-
-// NavbarToggler.propTypes = {
-//   type: PropTypes.string,
-//   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-//   // pass in custom element to use
-// }
-
-//  class Navbar extends Component {
-//     render() {
-//       return(
-//          <div>
-//         <ul>
-//         <li>
-//             <Link to="/">Home</Link>
-//         </li>
-//         <li>
-//             <Link to="/About">About</Link>
-//         </li>
-//     </ul>
-//     <hr />
-//             <Routes/>
-//             </div>
-//      )
-//     }
-// }
-//  export default Navbar

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Showcase from './Showcase';
+import Home from '../NavLinks/Home';
+import About from '../NavLinks/About';
+import Showcase from '../NavLinks/ShowcaseNav';
 
 export default class Routes extends Component {
     render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Tic-Tac-Toe.css'
+import './Tic-Tac-Toe.css';
 
 function Square(props) {
   return (
@@ -146,5 +146,3 @@ function calculateWinner(squares) {
   }
   return null;
 }
-
-export default Board
